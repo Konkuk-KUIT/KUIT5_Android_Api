@@ -1,5 +1,6 @@
 package com.example.kuitandroidapiexample.home.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,11 +28,13 @@ import com.example.kuitandroidapiexample.ui.theme.FindUTheme.typography
 @Composable
 fun AnimalItem(
     modifier: Modifier = Modifier,
-    animalData: AnimalData
+    animalData: AnimalData,
+    navigateToDetail: () -> Unit = {}
 ) {
     Row(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { navigateToDetail() },
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         AsyncImage(

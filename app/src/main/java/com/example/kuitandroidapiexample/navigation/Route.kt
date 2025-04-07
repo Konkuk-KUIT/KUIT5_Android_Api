@@ -5,8 +5,10 @@ import kotlinx.serialization.Serializable
 sealed interface Route {
     @Serializable
     data object Home : Route
+
     @Serializable
     data object Register : Route
+
     @Serializable
-    data object Detail: Route
+    data class Detail(val index: Int) : Route
 }

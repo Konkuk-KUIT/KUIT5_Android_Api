@@ -25,21 +25,16 @@ import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.example.kuitandroidapiexample.R
 import com.example.kuitandroidapiexample.common.TagChip
-import com.example.kuitandroidapiexample.model.AnimalData
-import com.example.kuitandroidapiexample.model.AnimalType
+import com.example.kuitandroidapiexample.model.AnimalData.Companion.animalDataList
 import com.example.kuitandroidapiexample.ui.theme.FindUTheme.colors
 import com.example.kuitandroidapiexample.ui.theme.FindUTheme.typography
 
 @Composable
 fun DetailScreen(
-    padding: PaddingValues
+    padding: PaddingValues,
+    index: Int
 ) {
-    val animalData = AnimalData(
-        imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        animalName = "점박이",
-        type = AnimalType.PROTECT,
-        address = "서울특별시 광진구 구의동"
-    )
+    val animalData = animalDataList[index]
 
     Box(
         modifier = Modifier
@@ -128,5 +123,5 @@ fun DetailScreen(
 @Preview(showBackground = true, widthDp = 360, heightDp = 800)
 @Composable
 private fun DetailScreenPreview() {
-    DetailScreen(PaddingValues())
+    DetailScreen(PaddingValues(), 0)
 }

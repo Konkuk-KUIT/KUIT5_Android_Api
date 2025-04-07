@@ -26,14 +26,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.kuitandroidapiexample.home.component.AnimalItem
-import com.example.kuitandroidapiexample.model.AnimalData
-import com.example.kuitandroidapiexample.model.AnimalType
+import com.example.kuitandroidapiexample.model.AnimalData.Companion.animalDataList
 import com.example.kuitandroidapiexample.ui.theme.FindUTheme.colors
 import com.example.kuitandroidapiexample.ui.theme.FindUTheme.typography
 
 @Composable
 fun HomeScreen(
-    padding: PaddingValues
+    padding: PaddingValues,
+    navigateToRegister: () -> Unit = {},
+    navigateToDetail: (Int) -> Unit = {},
 ) {
     val lazyState = rememberLazyListState()
 
@@ -64,9 +65,10 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 items(animalDataList.size) {
-                    animalDataList.forEach { item ->
+                    animalDataList.forEachIndexed { index, item ->
                         AnimalItem(
-                            animalData = item
+                            animalData = item,
+                            navigateToDetail = { navigateToDetail(index) }
                         )
                     }
                 }
@@ -80,7 +82,7 @@ fun HomeScreen(
                 .clip(RoundedCornerShape(20.dp))
                 .background(colors.orange)
                 .align(Alignment.BottomEnd),
-            onClick = {/* TODO */ }
+            onClick = navigateToRegister
         ) {
             Icon(
                 modifier = Modifier
@@ -93,38 +95,6 @@ fun HomeScreen(
     }
 }
 
-private val animalDataList = listOf(
-    AnimalData(
-        imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        animalName = "점박이",
-        type = AnimalType.PROTECT,
-        address = "서울특별시 광진구 구의동"
-    ),
-    AnimalData(
-        imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        animalName = "점박이",
-        type = AnimalType.WITNESS,
-        address = "서울특별시 광진구 구의동"
-    ),
-    AnimalData(
-        imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        animalName = "점박이",
-        type = AnimalType.PROTECT,
-        address = "서울특별시 광진구 구의동"
-    ),
-    AnimalData(
-        imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        animalName = "점박이",
-        type = AnimalType.MISSING,
-        address = "서울특별시 광진구 구의동"
-    ),
-    AnimalData(
-        imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        animalName = "점박이",
-        type = AnimalType.PROTECT,
-        address = "서울특별시 광진구 구의동"
-    )
-)
 
 @Preview(showBackground = true)
 @Composable
