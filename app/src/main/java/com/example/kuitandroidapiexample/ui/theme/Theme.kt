@@ -18,6 +18,10 @@ object FindUTheme {
         @ReadOnlyComposable
         get() = LocalFindUColorsProvider.current
 
+    val typography: FindUTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalFindUTypographyProvider.current
 }
 
 private val DarkColorScheme = darkColorScheme(
