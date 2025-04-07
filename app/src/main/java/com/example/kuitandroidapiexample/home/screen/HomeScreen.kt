@@ -96,31 +96,31 @@ fun HomeScreen(
 private val animalDataList = listOf(
     AnimalData(
         imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        name = "점박이",
+        animalName = "점박이",
         type = AnimalType.PROTECT,
         address = "서울특별시 광진구 구의동"
     ),
     AnimalData(
         imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        name = "점박이",
+        animalName = "점박이",
         type = AnimalType.WITNESS,
         address = "서울특별시 광진구 구의동"
     ),
     AnimalData(
         imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        name = "점박이",
+        animalName = "점박이",
         type = AnimalType.PROTECT,
         address = "서울특별시 광진구 구의동"
     ),
     AnimalData(
         imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        name = "점박이",
+        animalName = "점박이",
         type = AnimalType.MISSING,
         address = "서울특별시 광진구 구의동"
     ),
     AnimalData(
         imageUrl = "https://cdn.pixabay.com/photo/2018/05/26/18/06/dog-3431913_640.jpg",
-        name = "점박이",
+        animalName = "점박이",
         type = AnimalType.PROTECT,
         address = "서울특별시 광진구 구의동"
     )

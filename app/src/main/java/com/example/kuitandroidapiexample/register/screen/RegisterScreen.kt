@@ -30,8 +30,9 @@ import com.example.kuitandroidapiexample.ui.theme.FindUTheme.typography
 @Composable
 fun RegisterScreen(padding: PaddingValues) {
     var url by remember { mutableStateOf("") }
-    var name by remember { mutableStateOf("") }
+    var animalName by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
+    var reporterName by remember { mutableStateOf("") }
     var animalType by remember { mutableStateOf(AnimalType.PROTECT) }
 
     Box(
@@ -65,14 +66,20 @@ fun RegisterScreen(padding: PaddingValues) {
             FindUTextField(
                 modifier = Modifier.padding(top = 30.dp),
                 title = "이름 입력",
-                value = name
-            ) { name = it }
+                value = reporterName
+            ) { reporterName = it }
 
             FindUTextField(
                 modifier = Modifier.padding(top = 30.dp),
                 title = "주소 입력",
                 value = address
             ) { address = it }
+
+            FindUTextField(
+                modifier = Modifier.padding(top = 30.dp),
+                title = "동물 이름",
+                value = animalName
+            ) { animalName = it }
 
             TypeSelectContent(
                 modifier = Modifier.padding(start = 16.dp, top = 30.dp),
