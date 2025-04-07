@@ -64,13 +64,11 @@ fun HomeScreen(
                 contentPadding = PaddingValues(top = 20.dp, start = 20.dp, end = 20.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(animalDataList.size) {
-                    animalDataList.forEachIndexed { index, item ->
-                        AnimalItem(
-                            animalData = item,
-                            navigateToDetail = { navigateToDetail(index) }
-                        )
-                    }
+                items(animalDataList.size) { index ->
+                    AnimalItem(
+                        animalData = animalDataList[index],
+                        navigateToDetail = { navigateToDetail(index) }
+                    )
                 }
             }
         }
