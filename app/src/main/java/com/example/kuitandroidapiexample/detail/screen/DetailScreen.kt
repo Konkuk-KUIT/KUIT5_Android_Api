@@ -1,6 +1,7 @@
 package com.example.kuitandroidapiexample.detail.screen
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -32,7 +33,8 @@ import com.example.kuitandroidapiexample.ui.theme.FindUTheme.typography
 @Composable
 fun DetailScreen(
     padding: PaddingValues,
-    index: Int
+    index: Int,
+    navigateToBack: () -> Unit = {}
 ) {
     val animalData = animalDataList[index]
 
@@ -48,7 +50,9 @@ fun DetailScreen(
                     .height(64.dp)
             ) {
                 Icon(
-                    modifier = Modifier.padding(20.dp),
+                    modifier = Modifier
+                        .padding(20.dp)
+                        .clickable { navigateToBack() },
                     painter = painterResource(R.drawable.ic_chevron_left),
                     contentDescription = "뒤로 가기",
                     tint = Color.Unspecified

@@ -28,7 +28,10 @@ import com.example.kuitandroidapiexample.ui.theme.FindUTheme.colors
 import com.example.kuitandroidapiexample.ui.theme.FindUTheme.typography
 
 @Composable
-fun RegisterScreen(padding: PaddingValues) {
+fun RegisterScreen(
+    padding: PaddingValues,
+    navigateToBack: () -> Unit = {}
+) {
     var url by remember { mutableStateOf("") }
     var animalName by remember { mutableStateOf("") }
     var address by remember { mutableStateOf("") }
@@ -99,7 +102,10 @@ fun RegisterScreen(padding: PaddingValues) {
                 containerColor = colors.orange
             ),
             shape = RoundedCornerShape(8.dp),
-            onClick = { /* TODO */}
+            onClick = {
+                navigateToBack()
+                // TODO : POST API
+            }
         ) {
             Text(
                 text = "등록하기",
