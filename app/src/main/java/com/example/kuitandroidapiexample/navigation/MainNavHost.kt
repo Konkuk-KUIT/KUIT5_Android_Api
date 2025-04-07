@@ -25,7 +25,7 @@ fun MainNavHost(
                 padding = padding,
                 navigateToRegister = { navController.navigate(Route.Register) },
                 navigateToDetail = { index ->
-                    navController.navigate(Route.Detail(index = index))
+                    navController.navigate(Route.Detail(index))
                 }
             )
         }
@@ -33,11 +33,11 @@ fun MainNavHost(
             RegisterScreen(padding = padding)
         }
         composable<Route.Detail> { navBackStackEntry ->
-            val index: Int = navBackStackEntry.toRoute()
+            val args = navBackStackEntry.toRoute<Route.Detail>()
 
             DetailScreen(
                 padding = padding,
-                index = index
+                index = args.index
             )
         }
     }
