@@ -67,19 +67,19 @@ fun RegisterScreen(
             ) { url = it }
 
             FindUTextField(
-                modifier = Modifier.padding(top = 30.dp),
+                modifier = Modifier.padding(top = 15.dp),
                 title = "이름 입력",
                 value = reporterName
             ) { reporterName = it }
 
             FindUTextField(
-                modifier = Modifier.padding(top = 30.dp),
+                modifier = Modifier.padding(top = 15.dp),
                 title = "주소 입력",
                 value = address
             ) { address = it }
 
             FindUTextField(
-                modifier = Modifier.padding(top = 30.dp),
+                modifier = Modifier.padding(top = 15.dp),
                 title = "동물 이름",
                 value = animalName
             ) { animalName = it }
